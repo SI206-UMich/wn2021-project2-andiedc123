@@ -29,7 +29,7 @@ def get_search_links():
     url = 'https://www.goodreads.com/search?q=fantasy&qid=NwUsLiA2Nc'
     resp = requests.get(url)
     soup = BeautifulSoup(resp.text, 'html.parser')
-    books = soup.find_all('a', class_ = 'bookTile', itemprop = 'url')
+    books = soup.find_all('a', class_ = 'bookTitle', itemprop = 'url')
     for x in books:
         book = x['href']
         if book.startswith('/book/show/'):
